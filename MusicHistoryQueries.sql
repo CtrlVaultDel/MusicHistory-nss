@@ -1,5 +1,5 @@
 ﻿-- 1) Query all of the entries in the Genre Table
---Select * FROM Genre;
+-- SELECT * FROM Genre;
 
 -- 2) Query all entries in the Artist Table and order by the artists' name */
 -- SELECT * FROM Artist ORDER BY Artist.ArtistName;
@@ -14,7 +14,7 @@
 -- SELECT ArtistName, Genre.Label FROM Album JOIN Artist ON Album.ArtistId = Artist.Id JOIN Genre ON Album.GenreId = Genre.Id WHERE Genre.Label = 'Jazz' OR Genre.Label = 'Rock';
 
 -- 6) List the Albums with no songs
--- Select Album.Label FROM Album LEFT JOIN Song ON Song.AlbumId = Album.Id WHERE Song.title IS NULL;
+-- SELECT Album.Label FROM Album LEFT JOIN Song ON Song.AlbumId = Album.Id WHERE Song.title IS NULL;
 
 -- 7) Add your favorite artist
 -- INSERT INTO Artist (ArtistName, YearEstablished) VALUES ('Daft Punk', 1993)
