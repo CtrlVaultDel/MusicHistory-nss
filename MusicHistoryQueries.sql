@@ -27,5 +27,4 @@
 -- INSERT INTO Song (Title, SongLength, ReleaseDate, GenreId, ArtistId, AlbumId) VALUES ('Lose Yourself to Dance', 353, '08/13/2013', 14, 28, 23);
 
 -- 10) Get the song titles, album title and artist name for what you just entered
-SELECT a.Title, s.Title FROM Album a LEFT JOIN Song s ON s.AlbumId = a.Id;
-SELECT a.Title, s.Title FROM Song s LEFT JOIN Album a ON s.AlbumId = a.Id;
+-- SELECT * FROM Album JOIN Song ON Album.Id = Song.AlbumId JOIN Artist ON Album.ArtistId = Artist.Id WHERE Artist.ArtistName ='Daft Punk';
