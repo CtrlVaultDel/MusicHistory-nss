@@ -27,4 +27,14 @@
 -- INSERT INTO Song (Title, SongLength, ReleaseDate, GenreId, ArtistId, AlbumId) VALUES ('Lose Yourself to Dance', 353, '08/13/2013', 14, 28, 23);
 
 -- 10) Get the song titles, album title and artist name for what you just entered
--- SELECT * FROM Album JOIN Song ON Album.Id = Song.AlbumId JOIN Artist ON Album.ArtistId = Artist.Id WHERE Artist.ArtistName ='Daft Punk';
+-- SELECT Song.Title, Album.Label, Artist.ArtistName FROM Album JOIN Song ON Album.Id = Song.AlbumId JOIN Artist ON Album.ArtistId = Artist.Id WHERE Artist.ArtistName ='Daft Punk';
+
+-- 11) Display how many songs there are in each album (You're allowed to mention anything in the GROUP BY Clause or that is in an aggregate function
+-- SELECT COUNT(s.id), al.Title FROM Song s LEFT JOIN Album al ON s.AlbumId = al.Id GROUP BY al.Id, al.Title
+
+-- 14) List the artists that have put out records on more than one record label
+-- SELECT COUNT(DISTINCT al.label), ar.ArtistName FROM Artist ar JOIN Album al ON ar.id = al.ArtistId GROUP BY ar.ArtistName HAVING COUNT(DISTINCT al.label) > 1;
+
+-- 16) Write a select statement to find the song with the longest duration
+-- SELECT s.Title, s.SongLength FROM song s WHERE s.SongLength = (SELECT MAX(s.SongLength) FROM song s);
+-- SELECT TOP 1 s.Title, s.SongLength FROM song s ORDER BY s.SongLength desc;
