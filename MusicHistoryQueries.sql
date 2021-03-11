@@ -32,9 +32,20 @@
 -- 11) Display how many songs there are in each album (You're allowed to mention anything in the GROUP BY Clause or that is in an aggregate function
 -- SELECT COUNT(s.id), al.Title FROM Song s LEFT JOIN Album al ON s.AlbumId = al.Id GROUP BY al.Id, al.Title
 
+-- 12) Display how many songs exist for each artist
+-- SELECT artist.ArtistName, COUNT(song.id) as NumOfSongs FROM song JOIN artist ON song.ArtistId = artist.Id GROUP BY artist.id, artist.ArtistName
+
+-- 13) Display how many songs exist for each Genre
+-- SELECT Genre.Label, COUNT(song.id) as NumOfSongs FROM song JOIN Genre ON song.GenreId = Genre.id GROUP BY Genre.id, Genre.Label
+
 -- 14) List the artists that have put out records on more than one record label
 -- SELECT COUNT(DISTINCT al.label), ar.ArtistName FROM Artist ar JOIN Album al ON ar.id = al.ArtistId GROUP BY ar.ArtistName HAVING COUNT(DISTINCT al.label) > 1;
 
--- 16) Write a select statement to find the song with the longest duration
+-- 15) Find the album with the longest duration
+-- SELECT a.Label, a.AlbumLength FROM album a WHERE a.AlbumLength = (SELECT MAX(a.AlbumLength) FROM album a);
+
+-- 16) Find the song with the longest duration
 -- SELECT s.Title, s.SongLength FROM song s WHERE s.SongLength = (SELECT MAX(s.SongLength) FROM song s);
--- SELECT TOP 1 s.Title, s.SongLength FROM song s ORDER BY s.SongLength desc;
+
+-- 17) Modify the previous query to also display the title of the album
+-- SELECT a.Label, s.Title, s.SongLength FROM song s JOIN Album a ON s.AlbumId = a.Id WHERE s.SongLength = (SELECT MAX(s.SongLength) FROM song s);
